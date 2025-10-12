@@ -18,10 +18,6 @@ const MainContainer = styled(Box)`
 const Container = styled(Box)(({ theme }) => ({
     height: "85vh",
     overflowY: "auto",
-
-    [theme.breakpoints.down("sm")]: {
-        height: "88vh",
-    }
 }));
 
 const Own = styled(Box)`
