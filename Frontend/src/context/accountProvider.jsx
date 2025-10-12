@@ -14,6 +14,7 @@ function AccountProvider({ children }) {
 
     useEffect(() => {
         socket.current = io("https://whatsapp-clone-socket-aiok.onrender.com");
+        // socket.current = io("http://localhost:9000");
     }, [])
 
     useEffect(() => {

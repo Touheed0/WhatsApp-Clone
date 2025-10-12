@@ -8,14 +8,14 @@ import MicNoneOutlinedIcon from '@mui/icons-material/MicNoneOutlined';
 
 //Styling
 const MainContainer = styled(Box)(({ theme }) => ({
-    height: "51px",
+    height: "10vh",
     background: "#ededed",
     display: "flex",
     alignItems: "center",
     padding: "0 15px",
     gap: "5px",
     color: "#919191",
-    position: "absolute",
+    position: "sticky",
     bottom: 0,
     width: "100%",
 

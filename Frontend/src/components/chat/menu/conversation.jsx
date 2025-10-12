@@ -5,6 +5,7 @@ import { Box, Divider, styled, Typography } from "@mui/material";
 import { getUsers } from "../../../service/api";
 import { AccountContext } from "../../../context/accountProvider";
 import { setConversation } from "../../../service/api";
+import { emptyProfilePicture } from "../../constants/data";
 
 //Styling
 const Body = styled(Box)`
@@ -74,7 +75,7 @@ function Conversation({ text }) {
                         <Box key={user.sub}>
                             <MainContainer onClick={() => getUser(user)}>
                                 <Box>
-                                    <DpImage src={user.picture} alt="DP" />
+                                    <DpImage src={user?.picture || emptyProfilePicture} alt="DP" />
                                 </Box>
 
                                 <Box>

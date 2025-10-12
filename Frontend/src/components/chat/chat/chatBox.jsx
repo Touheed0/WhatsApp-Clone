@@ -1,11 +1,18 @@
 import { useContext, useEffect, useState } from "react";
-import { Box } from "@mui/material";
+import { Box, styled } from "@mui/material";
 
 //Components
 import ChatHeader from "./chatHeader";
 import MessageContainer from "./messageContainer";
 import { AccountContext } from "../../../context/accountProvider";
 import { getConversation } from "../../../service/api";
+
+//Styling
+const Container = styled(Box)`
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+`;
 
 function ChatBox() {
     const { person, account } = useContext(AccountContext);
@@ -22,10 +29,10 @@ function ChatBox() {
     }, [person.sub])
     return (
         <>
-            <Box style={{ height: "75%" }}>
+            <Container>
                 <ChatHeader person={person} />
                 <MessageContainer person={person} conversation={conversation} />
-            </Box>
+            </Container>
         </>
     )
 }

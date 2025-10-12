@@ -12,7 +12,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 //Styling
 const Header = styled(Box)`
-    height: 44px;
+    height: 8vh;
     background: #ededed;
     padding: 8px 16px;
     display: flex;
@@ -57,7 +57,7 @@ function ChatHeader({ person }) {
 
 
     const handleBack = () => {
-        setPerson({}); // When clicked, reset person → hides right section and shows left
+        setPerson({});
     };
     return (
         <>
@@ -68,7 +68,7 @@ function ChatHeader({ person }) {
                     <ArrowBackIcon />
                 </BackButton>
 
-                <Image src={person.picture} alt="DP" />
+                <Image src={person?.picture || emptyProfilePicture} alt="DP" />
                 <Box>
                     <Name>{person.name}</Name>
                     <Status>{activeUsers?.find(user => user.sub === person.sub) ? "Online" : "Offline"}</Status>
