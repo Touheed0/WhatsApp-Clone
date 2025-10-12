@@ -13,7 +13,7 @@ function AccountProvider({ children }) {
     const socket = useRef();
 
     useEffect(() => {
-        socket.current = io("http://localhost:9000");
+        socket.current = io("http://localhost:9000"); 
     }, [])
 
     useEffect(() => {

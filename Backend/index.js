@@ -1,22 +1,28 @@
 import express from "express";
 import cors from "cors";
-import bodyParser from "body-parser";
+import dotenv from "dotenv";
 
 import Connection from "./database/db.js";
 import Route from "./routes/route.js";
 
-const app = express();
-app.use(cors());
+dotenv.config();
 
-// app.use(bodyParser.json({extended:true}));
-// app.use(bodyParser.urlencoded({extended:true}));
+const app = express();
+app.use(
+    cors({
+        origin: "https://whatsapp-clone-frontend-tqbv.onrender.com",
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        credentials: true,
+    })
+);
+// app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", Route);
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 Connection();
 
