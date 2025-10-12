@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Box, styled, Typography } from "@mui/material";
+import { Box, IconButton, styled, Typography } from "@mui/material";
 
 //Components
 import { emptyProfilePicture } from "../../constants/data";
@@ -8,6 +8,7 @@ import { AccountContext } from "../../../context/accountProvider";
 //Material Icons
 import SearchIcon from '@mui/icons-material/Search';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 //Styling
 const Header = styled(Box)`
@@ -45,11 +46,28 @@ const RigtContainer = styled(Box)`
     }
 `
 
+const BackButton = styled(IconButton)({
+    display: "block",
+    marginRight: "8px",
+});
+
+
 function ChatHeader({ person }) {
-    const { activeUsers } = useContext(AccountContext);
+    const { activeUsers, setPerson } = useContext(AccountContext);
+
+
+    const handleBack = () => {
+        setPerson({}); // When clicked, reset person → hides right section and shows left
+    };
     return (
         <>
             <Header>
+
+                {/*Back Arrow visible on small screens */}
+                <BackButton onClick={handleBack}>
+                    <ArrowBackIcon />
+                </BackButton>
+
                 <Image src={person.picture} alt="DP" />
                 <Box>
                     <Name>{person.name}</Name>

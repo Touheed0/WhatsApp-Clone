@@ -3,19 +3,23 @@ import { useContext } from "react";
 
 //Material Icons
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Margin } from "@mui/icons-material";
 
 //Components
 import { AccountContext } from "../../context/accountProvider";
 
 //Styling
-const DrawerStyle = {
+const DrawerStyle = (theme) => ({
     left: 20,
-    top: 15,
+    top: 14,
     height: "95%",
     width: "29%",
-    boxShadow: "none"
-}
+    boxShadow: "none",
+
+    [theme.breakpoints.down("sm")]: {
+        width: "93%",
+        left: 10,
+    },
+});
 
 const DrawerHeader = styled(Box)`
     background: #008069;

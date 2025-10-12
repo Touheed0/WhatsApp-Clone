@@ -11,12 +11,18 @@ import { formateDate } from "../../../utils/common-utils";
 const MainContainer = styled(Box)`
     background-image: url(${"https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png"});
     background-size: 50%;
+    display: flex;
+    flex-direction: column;
 `
 
-const Container = styled(Box)`
-    height: 75vh;
-    overflow-y: scroll;
-`
+const Container = styled(Box)(({ theme }) => ({
+    height: "85vh",
+    overflowY: "auto",
+
+    [theme.breakpoints.down("sm")]: {
+        height: "88vh",
+    }
+}));
 
 const Own = styled(Box)`
     background: #dcf8c6;
@@ -134,7 +140,9 @@ function MessageContainer({ person, conversation }) {
 
                 </Container>
 
-                <ChatFooter sendText={sendText} setValue={setValue} value={value} />
+                <Box sx={{ position: "relative", height: "100%" }}>
+                    <ChatFooter sendText={sendText} setValue={setValue} value={value} />
+                </Box>
             </MainContainer>
         </>
     )

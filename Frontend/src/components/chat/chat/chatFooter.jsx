@@ -7,16 +7,23 @@ import MicNoneOutlinedIcon from '@mui/icons-material/MicNoneOutlined';
 
 
 //Styling
-const MainContainer = styled(Box)`
-    height: 51px;
-    background: #ededed;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    padding: 0 15px;
-    gap: 5px;
-    color: #919191;
-`
+const MainContainer = styled(Box)(({ theme }) => ({
+    height: "51px",
+    background: "#ededed",
+    display: "flex",
+    alignItems: "center",
+    padding: "0 15px",
+    gap: "5px",
+    color: "#919191",
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+
+    [theme.breakpoints.down("sm")]: {
+        padding: "0 10px",
+    }
+}));
+
 
 const SearchContainer = styled(Box)`
     background: white;
